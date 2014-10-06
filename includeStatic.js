@@ -4,7 +4,7 @@ angular.module("static-include").directive('includeStatic', function($http, $tem
     transclude: true,
     replace: true,
     scope:false,
-      link: function($scope, element, attrs, ctrl, transclude) {
+    link: function($scope, element, attrs, ctrl, transclude) {
       var templatePath = attrs.includeStatic;
 
       try{
