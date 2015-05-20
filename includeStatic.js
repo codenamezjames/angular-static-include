@@ -5,12 +5,12 @@ angular.module("static-include", []).directive('staticInclude', function($http, 
     replace: true,
     scope:false,
     link: function($scope, element, attrs, ctrl, transclude) {
-      var templatePath = attrs.includeStatic;
+      var templatePath = attrs.staticInclude;
 
       try{
       	templatePath = $scope.$eval(templatePath);
       }catch(err){
-      	throw new Error(attrs.includeStatic+' is not a valid object');
+      	throw new Error(attrs.staticInclude+' is not a valid object');
       }
 
       $http.get(templatePath, { cache: $templateCache })
