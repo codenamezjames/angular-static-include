@@ -5,5 +5,7 @@ This is a way to include files "staticly" E.G. without creating a new child scop
 
 bower install angular-static-include
 
-```angular.module('myApp', ['static-include'])```
+Usage   
+```angular.module('myApp', ['static-include'])```  
+  
 ```<div static-include="'/location/to/include.html'" >```
