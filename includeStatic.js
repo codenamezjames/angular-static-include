@@ -1,4 +1,4 @@
-angular.module("static-include").directive('includeStatic', function($http, $templateCache, $compile) {
+angular.module("static-include", []).directive('staticInclude', function($http, $templateCache, $compile) {
   return {
     restrict: 'A',
     transclude: true,
