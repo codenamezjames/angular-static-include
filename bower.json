@@ -1,0 +1,25 @@
+{
+  "name": "angular-static-include",
+  "version": "1.0.0",
+  "homepage": "https://github.com/jamesharrington/angular-static-include",
+  "authors": [
+    "James <indoisfun@gmail.com>"
+  ],
+  "description": "This is a way to include files \"staticly\" E.G. without creating a new child scope.",
+  "main": "includeStatic.js",
+  "keywords": [
+    "Angular",
+    "static",
+    "include",
+    "child",
+    "scope"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
