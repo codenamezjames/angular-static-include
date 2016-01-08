@@ -7,12 +7,6 @@ angular.module("static-include", []).directive('staticInclude', function($templa
     link: function($scope, element, attrs, ctrl, transclude) {
       var templatePath = attrs.staticInclude;
 
-      try{
-        templatePath = $scope.$eval(templatePath);
-      }catch(err){
-        throw new Error(attrs.staticInclude+' is not a valid object');
-      }
-
       $templateRequest(templatePath)
         .then(function(response) {
           var contents = element.html(response).contents();
