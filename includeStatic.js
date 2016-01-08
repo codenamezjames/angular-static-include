@@ -1,23 +1,23 @@
-angular.module("static-include", []).directive('staticInclude', function($http, $templateCache, $compile) {
+angular.module("static-include", []).directive('staticInclude', function($templateRequest, $compile) {
   return {
     restrict: 'A',
     transclude: true,
     replace: true,
-    scope:false,
+    scope: false,
     link: function($scope, element, attrs, ctrl, transclude) {
       var templatePath = attrs.staticInclude;
 
       try{
-      	templatePath = $scope.$eval(templatePath);
+        templatePath = $scope.$eval(templatePath);
       }catch(err){
-      	throw new Error(attrs.staticInclude+' is not a valid object');
+        throw new Error(attrs.staticInclude+' is not a valid object');
       }
 
-      $http.get(templatePath, { cache: $templateCache })
-      .success(function(response) {
-      	var contents = element.html(response).contents();
-        $compile(contents)($scope.$parent);
-      });
+      $templateRequest(templatePath)
+        .then(function(response) {
+          var contents = element.html(response).contents();
+          $compile(contents)($scope.$new(false, $scope.$parent));
+        });
     }
   };
 });
